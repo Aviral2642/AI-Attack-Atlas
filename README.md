@@ -34,3 +34,38 @@ It enables:
 1. Clone this repo:
    ```bash
    git clone https://github.com/aviral2642/AI-Attack-Atlas.git
+
+2. Open AI_Attack_Atlas_v2_expanded.opml in XMind or any OPML-compatible mind map tool
+
+3. Explore from precondition → to exploit → to pivot → to outcomes
+
+🛡️ Disclaimer
+
+This repository is for educational, research, and defensive security purposes only.
+It does not contain or endorse weaponized exploit code.
+The purpose is to improve AI threat modeling, strengthen defenses, and support the global AI security community.
+
+🌐 Contributing
+
+We welcome contributions:
+
+Add new attack paths or missing paradigms
+
+Link to new research papers, CVEs, or attack demonstrations
+
+Suggest usability or visualization improvements
+
+📣 Credits
+
+Inspired by Active Directory attack maps made by esidate used in red-team operations 
+
+Link - https://github.com/esidate/pentesting-active-directory
+
+Built by synthesizing research from MITRE ATLAS, OWASP LLM Top 10, and academic/industry sources
+
+Community-driven: meant to evolve as new AI threats emerge
+
+⭐ Support
+
+If you find this useful, please star the repo 🌟 and share with your peers.
+Help us make AI security knowledge open, accessible, and actionable.
