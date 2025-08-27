@@ -1,0 +1,2656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  
+  
+  <head>
+    
+    
+    <title>AI Attack Atlas (Operator View)</title>
+    
+    
+    <dateCreated>2025-08-25T21:56:49.153484Z</dateCreated>
+    
+  
+  </head>
+  
+  
+  <body>
+    
+    
+    <outline text="AI Attack Atlas (Operator View): Preconditions → Enumeration → Exploit → Pivot → Goals">
+      
+      
+      <outline text="Goal States (checkpoints &amp; pivots)">
+        
+        
+        <outline text="Model-weight exfiltration (foundation / fine-tuned)"/>
+        
+        
+        <outline text="Sensitive training data recovery (exact strings, PII, secrets)"/>
+        
+        
+        <outline text="Cross-tenant data access / data sovereignty violation"/>
+        
+        
+        <outline text="Arbitrary tool/action execution via agent control"/>
+        
+        
+        <outline text="Persistent poisoning (dataset / KB / embeddings / reward model / template)"/>
+        
+        
+        <outline text="Undetected model/inference tamper (silent bias / backdoor / jailbreak persistence)"/>
+        
+        
+        <outline text="Cloud account escalation (provider / hosting / MLOps / K8s)"/>
+        
+        
+        <outline text="Supply-chain compromise (models, datasets, packages, plugins, MCP tools)"/>
+        
+        
+        <outline text="GPU/TEE side-channel exfiltration"/>
+        
+        
+        <outline text="Monetary burn (DoS/Auto-scaling token drain, quota exhaustion)"/>
+        
+        
+        <outline text="Federated learning participant compromise / global model corruption"/>
+        
+        
+        <outline text="Edge device model theft / reverse engineering"/>
+        
+        
+        <outline text="Reinforcement learning reward manipulation / policy corruption"/>
+        
+        
+        <outline text="AutoML search space poisoning / architecture backdoors"/>
+        
+        
+        <outline text="Synthetic data generator compromise / distribution shift attacks"/>
+        
+      
+      </outline>
+      
+      
+      <outline text="Initial Preconditions (select what you have)">
+        
+        
+        <outline text="Black-box chat access only (no plugins/tools)">
+          
+          
+          <outline text="Direct prompt injection / jailbreaks (policy evasion, content policy bypass)"/>
+          
+          
+          <outline text="Indirection via content ingestion (web pages, PDFs, emails) → Indirect prompt injection"/>
+          
+          
+          <outline text="Hallucination steering for data exfil (model invents but also reveals indexed content)"/>
+          
+          
+          <outline text="Model extraction surface (query synthesis for surrogate training; confidence-less extraction)"/>
+          
+          
+          <outline text="Model fingerprinting (provider, family, version inference via quirks)"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Chat with tools / function calling (JSON schema based)">
+          
+          
+          <outline text="Tool selection hijack (description/param priming)"/>
+          
+          
+          <outline text="Argument smuggling in natural language fields (free-form → JSON args)"/>
+          
+          
+          <outline text="Return-channel injection (tool output → appended to conversation)"/>
+          
+          
+          <outline text="Multi-step tool loops (planner/executor) feedback poisoning"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="RAG application (vector DB + KB)">
+          
+          
+          <outline text="KB write access (wiki, CMS, SharePoint, Git, S3) → payload planting"/>
+          
+          
+          <outline text="Embedding pipeline manipulation (chunking, metadata, collection mix-up)"/>
+          
+          
+          <outline text="Index poisoning (topic hijack, anchor hijack, negative retrieval)"/>
+          
+          
+          <outline text="Citation spoofing &amp; retrieval coercion (rare-token anchors, adversarial strings)"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Agentic system (autonomous/looped)">
+          
+          
+          <outline text="Goal re-specification via hidden instructions"/>
+          
+          
+          <outline text="Tool graph/skill registry poisoning (MCP/tool schemas, plugin manifests)"/>
+          
+          
+          <outline text="Memory poisoning (episodic/scratchpad) → long-term drift"/>
+          
+          
+          <outline text="Output-to-input loop abuse (self-referential notes become commands)"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Fine-tune or SFT rights (no base weights)">
+          
+          
+          <outline text="Prompt/response set poisoning (backdoors, trigger phrases)"/>
+          
+          
+          <outline text="Safety inversion via few-shot anchors"/>
+          
+          
+          <outline text="PII lubricant examples increasing leakage propensity"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="RLHF/Preference data access">
+          
+          
+          <outline text="Preference dataset poisoning (sentiment flips, reward hacking)"/>
+          
+          
+          <outline text="Reward model trigger backdoors (keyword / token triggers)"/>
+          
+          
+          <outline text="Long-output cost-inflation poisoning (token-bloat preference)"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Foundation model weights access (read)">
+          
+          
+          <outline text="Parameter-space watermark removal / backdoor injection (diffusion/LLM)"/>
+          
+          
+          <outline text="Layer surgery (LoRA/adapter grafts)"/>
+          
+          
+          <outline text="Quantization/repacking time-of-use tamper"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Inference server access (host/container)">
+          
+          
+          <outline text="Token/secret scraping (env, config, logs)"/>
+          
+          
+          <outline text="Model file interception (volume mounts, NFS, object storage)"/>
+          
+          
+          <outline text="Side-channel enabling (GPU/local mem, compression channels)"/>
+          
+          
+          <outline text="Response cache scraping (kv caches, eval caches)"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="MLOps platform access (MLflow/Kubeflow/Vertex/SageMaker)">
+          
+          
+          <outline text="Model registry poisoning (malicious pickle/artifacts)"/>
+          
+          
+          <outline text="Pipeline spec tamper (YAML/DSL → supply-chain)"/>
+          
+          
+          <outline text="UI/XSS to session hijack → secret theft"/>
+          
+          
+          <outline text="CI/CD runner compromise → cluster pivot"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Cloud role/service principal/API key">
+          
+          
+          <outline text="Secrets manager enumeration → downstream creds"/>
+          
+          
+          <outline text="Storage buckets of training/embeddings/weights"/>
+          
+          
+          <outline text="GPU fleet metadata access → co-tenant positioning"/>
+          
+          
+          <outline text="Function-as-a-Service hooks to exfil / run"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Neighbor GPU/co-tenant (shared node)">
+          
+          
+          <outline text="Local memory residue reading (LeftoverLocals-class)"/>
+          
+          
+          <outline text="GPU compression side-channels (GPU.zip-class)"/>
+          
+          
+          <outline text="PCIe/NUMA topology inference → cross-container leakage risk"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Training data partial access">
+          
+          
+          <outline text="Targeted canary detection / canary extraction"/>
+          
+          
+          <outline text="Backdoor seeding (trigger-token behaviors)"/>
+          
+          
+          <outline text="Membership inference ground-truth construction"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Vector DB read-only">
+          
+          
+          <outline text="Embedding inversion risk analysis (PII recovery feasibility)"/>
+          
+          
+          <outline text="Nearest-neighbor probing to infer sensitive clusters"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Plugin/extension publishing rights (marketplaces/IDE)">
+          
+          
+          <outline text="Agent capability backdooring (over-privileged actions)"/>
+          
+          
+          <outline text="Update-channel hijack (silent manifest upgrades)"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Reinforcement Learning environment access">
+          
+          
+          <outline text="Environment specification tampering (state/action space manipulation)"/>
+          
+          
+          <outline text="Reward signal interception and modification"/>
+          
+          
+          <outline text="Adversarial state injection during training"/>
+          
+          
+          <outline text="Policy network direct access for trojan insertion"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Federated Learning participant role">
+          
+          
+          <outline text="Local model update poisoning (Byzantine attacks)"/>
+          
+          
+          <outline text="Gradient manipulation and amplification"/>
+          
+          
+          <outline text="Client selection gaming / Sybil participation"/>
+          
+          
+          <outline text="Privacy attack coordination across participants"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Edge device / IoT deployment access">
+          
+          
+          <outline text="Model extraction via timing/power analysis"/>
+          
+          
+          <outline text="Hardware fault injection (rowhammer, glitching)"/>
+          
+          
+          <outline text="Firmware backdooring for persistent access"/>
+          
+          
+          <outline text="OTA update channel compromise"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="AutoML / NAS platform access">
+          
+          
+          <outline text="Search space constraint manipulation"/>
+          
+          
+          <outline text="Architecture evaluation metric poisoning"/>
+          
+          
+          <outline text="Supernetwork weight corruption"/>
+          
+          
+          <outline text="Hardware-aware NAS targeting specific accelerators"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Multi-modal system interface">
+          
+          
+          <outline text="Cross-modal injection (image→text, audio→vision)"/>
+          
+          
+          <outline text="Modality alignment poisoning"/>
+          
+          
+          <outline text="Fusion layer manipulation"/>
+          
+          
+          <outline text="Attention mechanism hijacking across modalities"/>
+          
+        
+        </outline>
+        
+      
+      </outline>
+      
+      
+      <outline text="Cross-cutting Attack Classes (what can be done)">
+        
+        
+        <outline text="Prompt/Policy Attacks">
+          
+          
+          <outline text="Direct jailbreaks (role confusion, multi-turn dilution)"/>
+          
+          
+          <outline text="Indirect prompt injection (in-document/web/payload)"/>
+          
+          
+          <outline text="Multi-agent propagation (self-referential, worm-like patterns)"/>
+          
+          
+          <outline text="Insecure Output Handling (downstream code/HTML/SQL/URL execution)"/>
+          
+          
+          <outline text="Tool-call schema hijack (name/desc/param poisoning)"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Data Poisoning">
+          
+          
+          <outline text="Pretraining/web-scale seed poisoning (corpus hotspots, robots.txt-ignoring)"/>
+          
+          
+          <outline text="SFT/fine-tune poisoning (style transfer triggers, harmful response bias)"/>
+          
+          
+          <outline text="Reward-model poisoning (preference flips, token-length bloat)"/>
+          
+          
+          <outline text="RAG KB poisoning (anchoring, doc stuffing, prompt-in-doc)"/>
+          
+          
+          <outline text="Diffusion concept poisoning (Nightshade-style prompt-specific)"/>
+          
+          
+          <outline text="Federated learning update poisoning (model replacement, gradient scaling)"/>
+          
+          
+          <outline text="Reinforcement learning trajectory poisoning"/>
+          
+          
+          <outline text="Synthetic data distribution poisoning"/>
+          
+          
+          <outline text="Active learning query manipulation"/>
+          
+          
+          <outline text="Continual learning memory poisoning"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Privacy/Model Theft">
+          
+          
+          <outline text="Model extraction via black-box queries (surrogate fidelity)"/>
+          
+          
+          <outline text="Training data extraction (verbatim memorization mining)"/>
+          
+          
+          <outline text="Membership inference (is X in training?)"/>
+          
+          
+          <outline text="Model inversion (recover inputs/attributes from outputs)"/>
+          
+          
+          <outline text="Embedding inversion (vec2text; reconstructing source text)"/>
+          
+          
+          <outline text="Federated learning participant data reconstruction"/>
+          
+          
+          <outline text="Gradient inversion attacks"/>
+          
+          
+          <outline text="Architecture extraction via API timing"/>
+          
+          
+          <outline text="Hyperparameter inference attacks"/>
+          
+          
+          <outline text="Differential privacy budget attacks"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Adversarial ML (inputs)">
+          
+          
+          <outline text="Additive perturbations (FGSM/PGD)"/>
+          
+          
+          <outline text="Physical-world patches/objects (stickers, glasses)"/>
+          
+          
+          <outline text="Universal perturbations (image-agnostic)"/>
+          
+          
+          <outline text="Audio/ultrasonic/laser command injection"/>
+          
+          
+          <outline text="Time-series &amp; tabular adversarials (finance, ICS)"/>
+          
+          
+          <outline text="Semantic adversarial examples (maintaining meaning)"/>
+          
+          
+          <outline text="Transferable adversarial examples"/>
+          
+          
+          <outline text="Query-efficient black-box attacks"/>
+          
+          
+          <outline text="Adversarial reprogramming"/>
+          
+          
+          <outline text="Backdoor triggers in inputs"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Supply Chain &amp; Platform">
+          
+          
+          <outline text="Malicious models/artifacts (pickle, model cards, weights)"/>
+          
+          
+          <outline text="Package ecosystem abuse (pip/npm/conda)"/>
+          
+          
+          <outline text="MLOps UI/API vulns (XSS, CSRF, deserialization)"/>
+          
+          
+          <outline text="K8s/KFP/CI runners (privilege escalation)"/>
+          
+          
+          <outline text="Model hub dependency confusion / typosquatting"/>
+          
+          
+          <outline text="Dataset poisoning at source"/>
+          
+          
+          <outline text="Pretrained model backdoors"/>
+          
+          
+          <outline text="Framework vulnerability exploitation"/>
+          
+          
+          <outline text="Hardware supply chain attacks"/>
+          
+          
+          <outline text="Cloud provider API abuse"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Side-channels &amp; Isolation">
+          
+          
+          <outline text="GPU local memory residue leakage"/>
+          
+          
+          <outline text="GPU compression side-channel"/>
+          
+          
+          <outline text="Speculative execution &amp; cache timing"/>
+          
+          
+          <outline text="Prompt/token caches &amp; logs"/>
+          
+          
+          <outline text="TEE/trust boundary misconfigurations"/>
+          
+          
+          <outline text="Power analysis attacks"/>
+          
+          
+          <outline text="Electromagnetic emanation analysis"/>
+          
+          
+          <outline text="Acoustic cryptanalysis"/>
+          
+          
+          <outline text="Temperature-based side channels"/>
+          
+          
+          <outline text="Network timing analysis"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Economic &amp; Availability">
+          
+          
+          <outline text="Token/compute DoS (junk prompts, recursive tasks)"/>
+          
+          
+          <outline text="Context-bloat amplification (RAG over-retrieval)"/>
+          
+          
+          <outline text="Eval &amp; guardrail abuse to raise cost"/>
+          
+          
+          <outline text="Quota/key draining via hidden loops"/>
+          
+          
+          <outline text="Sponge attacks (maximizing energy consumption)"/>
+          
+          
+          <outline text="API rate limit exploitation"/>
+          
+          
+          <outline text="Batch processing attacks"/>
+          
+          
+          <outline text="Resource starvation via model complexity"/>
+          
+          
+          <outline text="Cascading failure induction"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Explainability &amp; Interpretability Attacks">
+          
+          
+          <outline text="Explanation manipulation (LIME/SHAP gaming)"/>
+          
+          
+          <outline text="Saliency map deception"/>
+          
+          
+          <outline text="Feature importance masking"/>
+          
+          
+          <outline text="Counterfactual explanation attacks"/>
+          
+          
+          <outline text="Attribution method exploitation"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Meta-Learning &amp; Few-Shot Attacks">
+          
+          
+          <outline text="Support set poisoning"/>
+          
+          
+          <outline text="Task distribution manipulation"/>
+          
+          
+          <outline text="Meta-parameter corruption"/>
+          
+          
+          <outline text="Few-shot backdoor injection"/>
+          
+          
+          <outline text="Cross-task interference attacks"/>
+          
+        
+        </outline>
+        
+      
+      </outline>
+      
+      
+      <outline text="Paradigm-Specific Paths (deep)">
+        
+        
+        <outline text="LLMs (chat/completion)">
+          
+          
+          <outline text="Enumeration">
+            
+            
+            <outline text="Model/provider/version &amp; safety profile"/>
+            
+            
+            <outline text="Tooling enabled? (functions/tools/plugins)"/>
+            
+            
+            <outline text="Context sources (web/RAG/KB/memory)"/>
+            
+            
+            <outline text="Output sinks (renderers, shells, DBs, endpoints)"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="Direct/indirect prompt injection; multi-turn framing"/>
+            
+            
+            <outline text="System prompt scraping via shadow-token hints"/>
+            
+            
+            <outline text="Context poisoning via citations/footnotes"/>
+            
+            
+            <outline text="JSON argument smuggling; type confusion"/>
+            
+            
+            <outline text="Return-channel injection to reframe next turn"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Tool execution capability gains"/>
+            
+            
+            <outline text="Data exfiltration via browsing/downloader"/>
+            
+            
+            <outline text="Policy collapse → unrestricted code suggestion"/>
+            
+            
+            <outline text="Key/secret exposure via logs/error channels"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="RAG Systems (retrieval-augmented)">
+          
+          
+          <outline text="Enumeration">
+            
+            
+            <outline text="Index type (HNSW/IVF), chunking, metadata"/>
+            
+            
+            <outline text="Write paths (CMS/wiki/fileshare/git/S3)"/>
+            
+            
+            <outline text="Pre-processing (OCR, splitters, parsers)"/>
+            
+            
+            <outline text="Citations &amp; grounding enforcement"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="KB poisoning (payload-in-doc; hidden text)"/>
+            
+            
+            <outline text="Anchor hijack (rare-token, unicode confusables)"/>
+            
+            
+            <outline text="Metadata skew (priority, freshness, source)"/>
+            
+            
+            <outline text="Embedding collision crafting; adversarial queries"/>
+            
+            
+            <outline text="Citation spoofing/URL override"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Persistent agent instruction via KB"/>
+            
+            
+            <outline text="Cross-collection bleed into other apps"/>
+            
+            
+            <outline text="Embedding theft → inversion risk (PII)"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="Agentic AI (planners/executors/memory)">
+          
+          
+          <outline text="Enumeration">
+            
+            
+            <outline text="Planner vs tool executor separation"/>
+            
+            
+            <outline text="Tool registry (MCP/JSON schema) provenance"/>
+            
+            
+            <outline text="Memory stores (short/long-term)"/>
+            
+            
+            <outline text="Safety sandboxes (browser/fs/exec)"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="Schema poisoning (name/desc/param/defaults)"/>
+            
+            
+            <outline text="Advanced tool poisoning (crafted tool outputs)"/>
+            
+            
+            <outline text="Plan injection (goal rewrite, recursive self-calls)"/>
+            
+            
+            <outline text="Multi-agent propagation (worm-like payloads)"/>
+            
+          
+            <outline text="LLM→Tool Output Injection (model-crafted prompts to tools)">
+              <outline text="Downstream sink mapping (shell/SQL/NoSQL/JS/URL/Filesystem)"/>
+              <outline text="Context-splitting attacks (tool expects JSON; model emits free text wrapper)"/>
+              <outline text="ID binding confusion (mismatched tool_call_id → wrong response consumed)"/>
+              <outline text="Tool-return reflection (error strings become next-step instructions)"/>
+            </outline>
+            <outline text="JSON/Schema Type Confusion">
+              <outline text="additionalProperties wildcard abuse"/>
+              <outline text="Enum fallthrough (unknown → default dangerous action)"/>
+              <outline text="Required-but-null coercion (validator bugs)"/>
+              <outline text="Injected URLs/paths leading to SSRF/LFI patterns"/>
+            </outline>
+            <outline text="Planner/Executor Divergence">
+              <outline text="Plan stuffing (hidden subtasks with high priority)"/>
+              <outline text="Self-referencing memories (notes → commands)"/>
+              <outline text="Skill name collisions (benign vs malicious homographs)"/>
+            </outline>
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Arbitrary action execution chain"/>
+            
+            
+            <outline text="Credential use through tools"/>
+            
+            
+            <outline text="Outbound spam/data exfil loops"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="Fine-tuning / SFT">
+          
+          
+          <outline text="Enumeration">
+            
+            
+            <outline text="Dataset sources &amp; provenance"/>
+            
+            
+            <outline text="PII presence, deduplication, canaries"/>
+            
+            
+            <outline text="Safety filters on outputs during SFT"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="Trigger-based backdoors in examples"/>
+            
+            
+            <outline text="Stylistic jailbreak primers"/>
+            
+            
+            <outline text="Response leakage amplifiers (template bias)"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Backdoor activation in production"/>
+            
+            
+            <outline text="Model card/watermark inconsistencies"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="RLHF / Reward Models">
+          
+          
+          <outline text="Enumeration">
+            
+            
+            <outline text="Preference pipeline (pairwise, listwise)"/>
+            
+            
+            <outline text="Public datasets mixed-in?"/>
+            
+            
+            <outline text="Reward model architecture &amp; triggers"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="Preference poisoning (sentiment/length bias)"/>
+            
+            
+            <outline text="Reward hacking/wireheading tendencies"/>
+            
+            
+            <outline text="Trigger-token reward spikes"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Global behavior drift (longer outputs, policy changes)"/>
+            
+            
+            <outline text="Residual vulnerabilities despite guardrails"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="Vision (classification/detection/segmentation)">
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="FGSM/PGD; universal perturbations"/>
+            
+            
+            <outline text="Physical-world adversarial patches"/>
+            
+            
+            <outline text="Backdoor triggers in datasets"/>
+            
+            
+            <outline text="Data labeling attacks"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Safety-critical misclassification (AV/industrial)"/>
+            
+            
+            <outline text="Cascading RAG misinformation via OCR"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="Speech &amp; Voice">
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="Ultrasonic inaudible injection (DolphinAttack-class)"/>
+            
+            
+            <outline text="Laser-based microphone injection (Light Commands)"/>
+            
+            
+            <outline text="Phoneme-level adversarial audio"/>
+            
+            
+            <outline text="TTS→ASR prompt loops (audio-hidden prompts)"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Voice assistant action execution"/>
+            
+            
+            <outline text="Cross-device propagation via speakers"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="Diffusion / Generative Images">
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="Prompt-specific concept poisoning (Nightshade-style)"/>
+            
+            
+            <outline text="Seed/cfg hijack for biasing generations"/>
+            
+            
+            <outline text="Style backdoors; watermark stripping"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Brand/style sabotage"/>
+            
+            
+            <outline text="Steganographic exfil in images"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="Recommenders / Tabular / Time-series">
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="Shilling/sybil profiles; injection attacks"/>
+            
+            
+            <outline text="Time-series drift adversarials"/>
+            
+            
+            <outline text="Feature poisoning via upstream ETL"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Financial/ops manipulation"/>
+            
+            
+            <outline text="Feedback loops increasing exposure"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="Graph / GNNs">
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="Nettack-style structure poisoning"/>
+            
+            
+            <outline text="Feature perturbations; label flips"/>
+            
+            
+            <outline text="Node injection attacks"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Credential/identity risk in fraud/identity graphs"/>
+            
+            
+            <outline text="Misrouting in logistics/infra graphs"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="Reinforcement Learning">
+          
+          
+          <outline text="Enumeration">
+            
+            
+            <outline text="Environment specifications and interfaces"/>
+            
+            
+            <outline text="Reward function implementation"/>
+            
+            
+            <outline text="State/action space boundaries"/>
+            
+            
+            <outline text="Exploration vs exploitation balance"/>
+            
+            
+            <outline text="Multi-agent setup and communication"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="Reward shaping attacks (misaligned objectives)"/>
+            
+            
+            <outline text="Environment poisoning (adversarial states)"/>
+            
+            
+            <outline text="Policy manipulation via crafted trajectories"/>
+            
+            
+            <outline text="Exploration hijacking"/>
+            
+            
+            <outline text="Multi-agent collusion attacks"/>
+            
+            
+            <outline text="Sim2real transfer attacks"/>
+            
+            
+            <outline text="State estimation attacks"/>
+            
+            
+            <outline text="Action space restriction bypass"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Safety constraint violations"/>
+            
+            
+            <outline text="Reward hacking in production"/>
+            
+            
+            <outline text="Cascading failures in multi-agent systems"/>
+            
+            
+            <outline text="Physical world damage (robotics)"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="Federated Learning">
+          
+          
+          <outline text="Enumeration">
+            
+            
+            <outline text="Federation topology and communication"/>
+            
+            
+            <outline text="Aggregation algorithm (FedAvg, FedProx, etc.)"/>
+            
+            
+            <outline text="Client selection mechanism"/>
+            
+            
+            <outline text="Privacy mechanisms (DP, secure aggregation)"/>
+            
+            
+            <outline text="Model update frequency and synchronization"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="Byzantine attacks (malicious model updates)"/>
+            
+            
+            <outline text="Model replacement attacks"/>
+            
+            
+            <outline text="Gradient leakage exploitation"/>
+            
+            
+            <outline text="Sybil attacks (multiple fake participants)"/>
+            
+            
+            <outline text="Backdoor insertion via local training"/>
+            
+            
+            <outline text="Differential privacy budget exhaustion"/>
+            
+            
+            <outline text="Aggregation algorithm exploitation"/>
+            
+            
+            <outline text="Communication channel manipulation"/>
+            
+            
+            <outline text="Convergence disruption attacks"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Global model corruption"/>
+            
+            
+            <outline text="Cross-participant data leakage"/>
+            
+            
+            <outline text="Federation infrastructure compromise"/>
+            
+            
+            <outline text="Privacy mechanism bypass"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="AutoML / Neural Architecture Search">
+          
+          
+          <outline text="Enumeration">
+            
+            
+            <outline text="Search space definition and constraints"/>
+            
+            
+            <outline text="Architecture evaluation metrics"/>
+            
+            
+            <outline text="Search algorithm (evolutionary, RL-based, differentiable)"/>
+            
+            
+            <outline text="Hardware constraints and targets"/>
+            
+            
+            <outline text="Training pipeline integration"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="Search space poisoning (biased architecture templates)"/>
+            
+            
+            <outline text="Evaluation metric manipulation"/>
+            
+            
+            <outline text="Architecture backdoor injection"/>
+            
+            
+            <outline text="Resource consumption amplification"/>
+            
+            
+            <outline text="Supernet weight corruption"/>
+            
+            
+            <outline text="Hardware-specific backdoor targeting"/>
+            
+            
+            <outline text="Progressive search hijacking"/>
+            
+            
+            <outline text="Meta-controller manipulation"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Deployed model contains architectural backdoors"/>
+            
+            
+            <outline text="Resource exhaustion during search"/>
+            
+            
+            <outline text="Biased architecture preferences"/>
+            
+            
+            <outline text="Supply chain compromise via architecture"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="Edge AI / TinyML">
+          
+          
+          <outline text="Enumeration">
+            
+            
+            <outline text="Device capabilities and constraints"/>
+            
+            
+            <outline text="Model compression techniques used"/>
+            
+            
+            <outline text="Update mechanisms (OTA, local)"/>
+            
+            
+            <outline text="Hardware security features"/>
+            
+            
+            <outline text="Power and thermal constraints"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="Model extraction via power analysis"/>
+            
+            
+            <outline text="Firmware modification attacks"/>
+            
+            
+            <outline text="Hardware fault injection (glitching, rowhammer)"/>
+            
+            
+            <outline text="Side-channel inference attacks"/>
+            
+            
+            <outline text="Physical tampering and reverse engineering"/>
+            
+            
+            <outline text="Update channel compromise"/>
+            
+            
+            <outline text="Memory corruption attacks"/>
+            
+            
+            <outline text="Real-time inference hijacking"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Model theft and replication"/>
+            
+            
+            <outline text="Device compromise and backdooring"/>
+            
+            
+            <outline text="IoT botnet recruitment"/>
+            
+            
+            <outline text="Privacy violation via local inference"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="Transformer Architectures (specific)">
+          
+          
+          <outline text="Enumeration">
+            
+            
+            <outline text="Attention mechanism variations"/>
+            
+            
+            <outline text="Layer normalization and residual connections"/>
+            
+            
+            <outline text="Positional encoding schemes"/>
+            
+            
+            <outline text="Multi-head attention configuration"/>
+            
+            
+            <outline text="Context window and memory mechanisms"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="Attention pattern manipulation"/>
+            
+            
+            <outline text="Positional encoding exploitation"/>
+            
+            
+            <outline text="Layer normalization bypass"/>
+            
+            
+            <outline text="Multi-head attention confusion"/>
+            
+            
+            <outline text="Context window overflow attacks"/>
+            
+            
+            <outline text="Gradient flow manipulation"/>
+            
+            
+            <outline text="Residual connection poisoning"/>
+            
+            
+            <outline text="Self-attention matrix corruption"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Attention-based information leakage"/>
+            
+            
+            <outline text="Model behavior drift via attention"/>
+            
+            
+            <outline text="Context manipulation attacks"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="Quantum Machine Learning">
+          
+          
+          <outline text="Enumeration">
+            
+            
+            <outline text="Quantum circuit architecture"/>
+            
+            
+            <outline text="Classical-quantum hybrid approaches"/>
+            
+            
+            <outline text="Quantum state preparation methods"/>
+            
+            
+            <outline text="Measurement strategies"/>
+            
+            
+            <outline text="Error correction mechanisms"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="Quantum state manipulation"/>
+            
+            
+            <outline text="Decoherence exploitation"/>
+            
+            
+            <outline text="Measurement tampering"/>
+            
+            
+            <outline text="Classical-quantum interface attacks"/>
+            
+            
+            <outline text="Quantum circuit backdoors"/>
+            
+            
+            <outline text="Noise injection attacks"/>
+            
+            
+            <outline text="Entanglement disruption"/>
+            
+            
+            <outline text="Quantum error amplification"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Quantum advantage nullification"/>
+            
+            
+            <outline text="Classical fallback exploitation"/>
+            
+            
+            <outline text="Quantum information leakage"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="Neuromorphic Computing / Spiking Neural Networks">
+          
+          
+          <outline text="Enumeration">
+            
+            
+            <outline text="Neuron model and dynamics"/>
+            
+            
+            <outline text="Spike timing encoding schemes"/>
+            
+            
+            <outline text="Plasticity and learning rules"/>
+            
+            
+            <outline text="Network topology and connectivity"/>
+            
+            
+            <outline text="Hardware implementation details"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Attack vectors">
+            
+            
+            <outline text="Spike timing manipulation"/>
+            
+            
+            <outline text="Neuronal dynamics exploitation"/>
+            
+            
+            <outline text="Plasticity rule corruption"/>
+            
+            
+            <outline text="Network topology attacks"/>
+            
+            
+            <outline text="Hardware-specific exploits"/>
+            
+            
+            <outline text="Temporal pattern injection"/>
+            
+            
+            <outline text="Membrane potential manipulation"/>
+            
+            
+            <outline text="Synaptic weight corruption"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Pivots">
+            
+            
+            <outline text="Temporal processing corruption"/>
+            
+            
+            <outline text="Energy efficiency degradation"/>
+            
+            
+            <outline text="Real-time response manipulation"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+      
+      </outline>
+      
+      
+      <outline text="Named Classes &amp; Notable Issues (for hunt &amp; test)">
+        
+        
+        <outline text="LeftoverLocals (GPU local-memory residue leakage, CVE-2023-4969)"/>
+        
+        
+        <outline text="GPU.zip (compression side-channel on iGPU/dGPUs)"/>
+        
+        
+        <outline text="Model extraction via prediction APIs (Tramèr et al. 2016)"/>
+        
+        
+        <outline text="Training data extraction from LLMs (Carlini et al. 2021)"/>
+        
+        
+        <outline text="Membership inference (Shokri et al. 2017)"/>
+        
+        
+        <outline text="Model inversion (Fredrikson et al. 2015)"/>
+        
+        
+        <outline text="Universal adversarial perturbations (Moosavi-Dezfooli et al. 2017)"/>
+        
+        
+        <outline text="Physical-world adversarial stickers/patches (Eykholt et al. 2018)"/>
+        
+        
+        <outline text="DolphinAttack (inaudible ultrasonic voice injection)"/>
+        
+        
+        <outline text="Light Commands (laser-based microphone injection)"/>
+        
+        
+        <outline text="Nightshade (prompt-specific data poisoning for diffusion)"/>
+        
+        
+        <outline text="Morris II (self-propagating prompt-injection worm in RAG ecosystems)"/>
+        
+        
+        <outline text="Tool/Schema poisoning (MCP/tool-calling ecosystems)"/>
+        
+        
+        <outline text="MLflow/Kubeflow: artifact deserialization, XSS, path traversal classes"/>
+        
+        
+        <outline text="BadNets (backdoor attacks via neural networks)"/>
+        
+        
+        <outline text="Neural Cleanse (backdoor detection and mitigation)"/>
+        
+        
+        <outline text="TrojanPuzzle (collaborative backdoor attacks)"/>
+        
+        
+        <outline text="DeepPayload (payload embedding in neural networks)"/>
+        
+        
+        <outline text="HopSkipJumpAttack (query-efficient adversarial attacks)"/>
+        
+        
+        <outline text="C&amp;W Attack (Carlini &amp; Wagner L2/L∞ attacks)"/>
+        
+        
+        <outline text="PGD (Projected Gradient Descent attacks)"/>
+        
+        
+        <outline text="FGSM (Fast Gradient Sign Method)"/>
+        
+        
+        <outline text="DeepFool (minimal adversarial perturbations)"/>
+        
+        
+        <outline text="One Pixel Attack (single pixel adversarial examples)"/>
+        
+        
+        <outline text="Adversarial Patch (universal adversarial patches)"/>
+        
+        
+        <outline text="LaVAN (Localized and Visible Adversarial Noise)"/>
+        
+        
+        <outline text="SemanticAdv (semantic adversarial examples)"/>
+        
+        
+        <outline text="TextFooler (word-level textual adversarial attacks)"/>
+        
+        
+        <outline text="BERT-Attack (BERT-based textual adversarial examples)"/>
+        
+        
+        <outline text="HotFlip (adversarial examples via gradient-based word substitution)"/>
+        
+        
+        <outline text="Universal Trigger (universal adversarial triggers for NLP)"/>
+        
+        
+        <outline text="Trojan Attack (trojaning attack on neural networks)"/>
+        
+        
+        <outline text="Neural Trojans (stealthy backdoor attacks)"/>
+        
+        
+        <outline text="Hidden Voice Commands (inaudible voice commands)"/>
+        
+        
+        <outline text="CommanderSong (hidden voice commands in music)"/>
+        
+        
+        <outline text="SurfingAttack (ultrasonic guided attacks)"/>
+        
+        
+        <outline text="BackdoorBench (comprehensive backdoor benchmark)"/>
+        
+        
+        <outline text="CleanLabel (clean-label backdoor attacks)"/>
+        
+        
+        <outline text="WaNet (imperceptible warping-based backdoor)"/>
+        
+        
+        <outline text="LIRA (likelihood ratio attacks for membership inference)"/>
+        
+        
+        <outline text="Property Inference Attack (inferring dataset properties)"/>
+        
+        
+        <outline text="Attribute Inference Attack (inferring sensitive attributes)"/>
+        
+        
+        <outline text="Data Reconstruction Attack (reconstructing training data)"/>
+        
+        
+        <outline text="GAN Inversion (inverting generative models)"/>
+        
+        
+        <outline text="StyleGAN Manipulation (semantic editing attacks)"/>
+        
+        
+        <outline text="Latent Space Attack (attacking in latent representations)"/>
+        
+        
+        <outline text="Feature Collision Attack (colliding feature representations)"/>
+        
+        
+        <outline text="Gradient Inversion (Deep Gradient Leakage, DLG)"/>
+        
+        
+        <outline text="iDLG (improved Deep Gradient Leakage)"/>
+        
+        
+        <outline text="GradInversion (gradient-based data reconstruction)"/>
+        
+        
+        <outline text="TAG (gradient compression attacks)"/>
+        
+        
+        <outline text="Soteria (information leakage protection)"/>
+        
+        
+        <outline text="FedSGD attacks (federated SGD vulnerabilities)"/>
+        
+        
+        <outline text="Byzantine-robust aggregation failures"/>
+        
+        
+        <outline text="Adversarial Training Failure (Rob's Gradient Masking)"/>
+        
+        
+        <outline text="Certified Defense Bypass (smoothing/randomization bypass)"/>
+        
+        
+        <outline text="AutoAttack (ensemble of adversarial attacks)"/>
+        
+        
+        <outline text="Square Attack (query-efficient black-box attack)"/>
+        
+        
+        <outline text="SPSA Attack (simultaneous perturbation stochastic approximation)"/>
+        
+        
+        <outline text="ZOO (zeroth order optimization attack)"/>
+        
+        
+        <outline text="Bandits Attack (bandit-based adversarial attacks)"/>
+        
+        
+        <outline text="Decision Boundary Attack (boundary-based attacks)"/>
+        
+        
+        <outline text="Brendel&amp;Bethge Attack (decision-based adversarial attacks)"/>
+        
+        
+        <outline text="QEBA (query-efficient boundary-based attack)"/>
+        
+        
+        <outline text="Evolutionary Attack (genetic algorithm-based attacks)"/>
+        
+        
+        <outline text="SimBA (simple black-box adversarial attacks)"/>
+        
+        
+        <outline text="Sign-OPT (sign-based optimization attacks)"/>
+        
+        
+        <outline text="Parsimonious Attack (sparse adversarial attacks)"/>
+        
+        
+        <outline text="OnePixel++ (improved one pixel attacks)"/>
+        
+        
+        <outline text="LazyAttack (lazy approach to crafting adversarial examples)"/>
+        
+        
+        <outline text="RayS (rapid adversarial attack via surrogate)"/>
+        
+        
+        <outline text="MultiTargeted Attack (attacking multiple targets simultaneously)"/>
+        
+        
+        <outline text="Ensemble Attack (attacking ensemble models)"/>
+        
+        
+        <outline text="Transferability Attack (cross-model adversarial transfer)"/>
+        
+        
+        <outline text="MI-FGSM (momentum iterative FGSM)"/>
+        
+        
+        <outline text="NI-FGSM (Nesterov iterative FGSM)"/>
+        
+        
+        <outline text="PI-FGSM (patch-wise iterative FGSM)"/>
+        
+        
+        <outline text="DI-FGSM (diverse inputs FGSM)"/>
+        
+        
+        <outline text="TI-FGSM (translation-invariant FGSM)"/>
+        
+        
+        <outline text="SI-NI-FGSM (scale-invariant nested iterative FGSM)"/>
+        
+        
+        <outline text="LinBP (linear backpropagation for transferability)"/>
+        
+        
+        <outline text="BIA (bias field attack)"/>
+        
+        
+        <outline text="ILA (intermediate level attack)"/>
+        
+        
+        <outline text="Feature Disruptive Attack (disrupting intermediate features)"/>
+        
+        
+        <outline text="NAA (neuron activation attack)"/>
+        
+        
+        <outline text="UAP (universal adversarial perturbations)"/>
+        
+        
+        <outline text="GAP (generative adversarial perturbations)"/>
+        
+        
+        <outline text="NAP (neural adversarial perturbations)"/>
+        
+        
+        <outline text="FFF (fast feature fool)"/>
+        
+        
+        <outline text="AAA (adversarial activation attack)"/>
+        
+        
+        <outline text="AdvGAN (generating adversarial examples with GANs)"/>
+        
+        
+        <outline text="SemanticGAN (semantic adversarial examples)"/>
+        
+        
+        <outline text="DiscoGAN (disentangled adversarial examples)"/>
+        
+        
+        <outline text="CycleGAN Attack (cycle-consistent adversarial examples)"/>
+        
+        
+        <outline text="StarGAN Attack (multi-domain adversarial examples)"/>
+        
+        
+        <outline text="Progressive GAN Attack (progressive adversarial generation)"/>
+        
+        
+        <outline text="BigGAN Attack (large-scale adversarial generation)"/>
+        
+        
+        <outline text="StyleGAN Attack (style-based adversarial examples)"/>
+        
+        
+        <outline text="WGAN Attack (Wasserstein GAN adversarial examples)"/>
+        
+        
+        <outline text="LSGAN Attack (least squares GAN attacks)"/>
+        
+        
+        <outline text="InfoGAN Attack (information-theoretic adversarial examples)"/>
+        
+        
+        <outline text="EBGAN Attack (energy-based GAN attacks)"/>
+        
+        
+        <outline text="BEGAN Attack (boundary equilibrium GAN attacks)"/>
+        
+        
+        <outline text="SAGAN Attack (self-attention GAN attacks)"/>
+        
+        
+        <outline text="PGGAN Attack (progressive growing GAN attacks)"/>
+        
+        
+        <outline text="VAE Attack (variational autoencoder attacks)"/>
+        
+        
+        <outline text="β-VAE Attack (beta variational autoencoder attacks)"/>
+        
+        
+        <outline text="WAE Attack (Wasserstein autoencoder attacks)"/>
+        
+        
+        <outline text="AAE Attack (adversarial autoencoder attacks)"/>
+        
+        
+        <outline text="InfoVAE Attack (information variational autoencoder attacks)"/>
+        
+        
+        <outline text="VQ-VAE Attack (vector quantized VAE attacks)"/>
+        
+        
+        <outline text="Flow-based Attack (normalizing flow attacks)"/>
+        
+        
+        <outline text="Real NVP Attack (coupling layer attacks)"/>
+        
+        
+        <outline text="Glow Attack (flow-based generative model attacks)"/>
+        
+        
+        <outline text="MAF Attack (masked autoregressive flow attacks)"/>
+        
+        
+        <outline text="IAF Attack (inverse autoregressive flow attacks)"/>
+        
+        
+        <outline text="Diffusion Attack (diffusion model attacks)"/>
+        
+        
+        <outline text="DDPM Attack (denoising diffusion probabilistic model attacks)"/>
+        
+        
+        <outline text="DDIM Attack (denoising diffusion implicit model attacks)"/>
+        
+        
+        <outline text="Score-based Attack (score-based generative model attacks)"/>
+        
+        
+        <outline text="NCSN Attack (noise conditional score network attacks)"/>
+        
+        
+        <outline text="Energy-based Attack (energy-based model attacks)"/>
+        
+        
+        <outline text="Contrastive Attack (contrastive learning attacks)"/>
+        
+        
+        <outline text="SimCLR Attack (simple contrastive learning attacks)"/>
+        
+        
+        <outline text="MoCo Attack (momentum contrast attacks)"/>
+        
+        
+        <outline text="SwAV Attack (swapping assignments between views attacks)"/>
+        
+        
+        <outline text="BYOL Attack (bootstrap your own latent attacks)"/>
+        
+        
+        <outline text="SimSiam Attack (simple siamese attacks)"/>
+        
+        
+        <outline text="Barlow Twins Attack (barlow twins attacks)"/>
+        
+        
+        <outline text="VICReg Attack (variance-invariance-covariance attacks)"/>
+        
+        
+        <outline text="DINO Attack (self-distillation with no labels attacks)"/>
+        
+        
+        <outline text="MAE Attack (masked autoencoder attacks)"/>
+        
+        
+        <outline text="BEiT Attack (bidirectional encoder representation from transformers attacks)"/>
+        
+        
+        <outline text="SimMIM Attack (simple framework for masked image modeling attacks)"/>
+        
+        
+        <outline text="ConvMAE Attack (convolutional masked autoencoder attacks)"/>
+        
+        
+        <outline text="CAE Attack (context autoencoder attacks)"/>
+        
+        
+        <outline text="MaskFeat Attack (masked feature prediction attacks)"/>
+        
+        
+        <outline text="iBOT Attack (image BERT pre-training attacks)"/>
+        
+        
+        <outline text="EsViT Attack (efficient self-supervised vision transformer attacks)"/>
+        
+        
+        <outline text="CLIP Attack (contrastive language-image pre-training attacks)"/>
+        
+        
+        <outline text="ALIGN Attack (large-scale image and text alignment attacks)"/>
+        
+        
+        <outline text="DALL-E Attack (discrete VAE text-to-image attacks)"/>
+        
+        
+        <outline text="GLIDE Attack (guided language to image diffusion attacks)"/>
+        
+        
+        <outline text="DALLE-2 Attack (hierarchical text-conditional image generation attacks)"/>
+        
+        
+        <outline text="Imagen Attack (photorealistic text-to-image diffusion attacks)"/>
+        
+        
+        <outline text="Parti Attack (pathways autoregressive text-to-image attacks)"/>
+        
+        
+        <outline text="Make-A-Scene Attack (scene generation attacks)"/>
+        
+        
+        <outline text="CogView Attack (text-to-image generation attacks)"/>
+        
+        
+        <outline text="NÜWA Attack (visual synthesis pre-training attacks)"/>
+        
+        
+        <outline text="Flamingo Attack (few-shot learning attacks)"/>
+        
+        
+        <outline text="BLIP Attack (bootstrapped vision-language pre-training attacks)"/>
+        
+        
+        <outline text="SimVLM Attack (simple visual language model attacks)"/>
+        
+        
+        <outline text="ALBEF Attack (align before fuse attacks)"/>
+        
+        
+        <outline text="VLMo Attack (unified vision-language pre-training attacks)"/>
+        
+        
+        <outline text="CoCa Attack (contrastive captioners attacks)"/>
+        
+        
+        <outline text="FLAVA Attack (foundational language and vision alignment attacks)"/>
+        
+        
+        <outline text="BEiT-3 Attack (image as foreign language attacks)"/>
+        
+        
+        <outline text="PaLI Attack (jointly scaled multilingual language-image model attacks)"/>
+        
+        
+        <outline text="LLaVA Attack (large language and vision assistant attacks)"/>
+        
+        
+        <outline text="InstructBLIP Attack (instruction-tuned vision-language attacks)"/>
+        
+        
+        <outline text="GPT-4V Attack (GPT-4 with vision attacks)"/>
+        
+        
+        <outline text="Gemini Attack (multimodal large language model attacks)"/>
+        
+        
+        <outline text="Claude-3 Attack (multimodal AI assistant attacks)"/>
+        
+      
+      </outline>
+      
+      
+      <outline text="If Success → Next Capability → New Branch">
+        
+        
+        <outline text="Arbitrary Tool Exec Achieved">
+          
+          
+          <outline text="Exfil via connectors (drive/mail/slack)"/>
+          
+          
+          <outline text="Key discovery via tool logs/errors"/>
+          
+          
+          <outline text="Privilege use → cloud pivot"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="KB Poison Persisted">
+          
+          
+          <outline text="Agent memory drift (long-term)"/>
+          
+          
+          <outline text="Supply-chain blast radius (other apps consuming KB)"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Model/Embedding Exfiltrated">
+          
+          
+          <outline text="Embedding inversion/membership tests"/>
+          
+          
+          <outline text="Shadow model deployment (surrogate)"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="GPU Leakage Confirmed">
+          
+          
+          <outline text="LLM conversation recovery feasibility"/>
+          
+          
+          <outline text="Co-tenant identification &amp; ethics review"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Federated Learning Compromised">
+          
+          
+          <outline text="Global model backdoor activation"/>
+          
+          
+          <outline text="Cross-participant data reconstruction"/>
+          
+          
+          <outline text="Federation infrastructure pivot"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Edge Device Compromised">
+          
+          
+          <outline text="Model extraction and replication"/>
+          
+          
+          <outline text="IoT botnet recruitment"/>
+          
+          
+          <outline text="Physical world manipulation"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="AutoML Platform Compromised">
+          
+          
+          <outline text="Architecture backdoor deployment"/>
+          
+          
+          <outline text="Search space manipulation"/>
+          
+          
+          <outline text="Resource consumption attacks"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Multi-modal System Breached">
+          
+          
+          <outline text="Cross-modal injection escalation"/>
+          
+          
+          <outline text="Modality-specific attack chaining"/>
+          
+          
+          <outline text="Attention mechanism exploitation"/>
+          
+        
+        </outline>
+        
+      
+      </outline>
+      
+      
+      <outline text="Defensive Checks (attach to each branch during testing)">
+        
+        
+        <outline text="Isolation &amp; policy: treat untrusted inputs distinctly; separate channels"/>
+        
+        
+        <outline text="Content firewalls: prompt shields; output encoding/validation"/>
+        
+        
+        <outline text="Tool gating: allowlists; typed arguments; schema hardening; out-of-band auth"/>
+        
+        
+        <outline text="RAG hygine: signed KB; provenance; immutable snapshots; toxic-string filters"/>
+        
+        
+        <outline text="MLOps hardening: artifact signing; pickle bans; SBOM; signed model hubs"/>
+        
+        
+        <outline text="Secrets &amp; logging: redact; scoped tokens; egress controls"/>
+        
+        
+        <outline text="GPU/K8s: MIG/MPS isolation; zeroing; privileged container bans; node taints"/>
+        
+        
+        <outline text="Privacy: DP, k-anonymity tests, canaries; embedding privacy audits"/>
+        
+        
+        <outline text="Economy: rate limits; cost ceilings; recursion/loop breakers"/>
+        
+        
+        <outline text="Red-team loops: automated evals for jailbreak/poison/extraction"/>
+        
+        
+        <outline text="Federated defenses: Byzantine-robust aggregation; secure multi-party computation"/>
+        
+        
+        <outline text="Edge security: trusted execution environments; secure boot; hardware attestation"/>
+        
+        
+        <outline text="AutoML security: search space constraints; architecture validation; resource monitoring"/>
+        
+        
+        <outline text="Multi-modal security: cross-modal validation; modality-specific filters; attention monitoring"/>
+        
+        
+        <outline text="Quantum security: quantum error correction; decoherence monitoring; state verification"/>
+        
+        
+        <outline text="Neuromorphic security: spike pattern validation; plasticity constraints; temporal monitoring"/>
+        
+      
+      </outline>
+      
+    
+      <outline text="Operator Playbooks (by foothold, AD-style)">
+        <outline text="No creds → Public Chat Endpoint">
+          <outline text="Enumerate: model family, tools enabled, browsing/RAG presence"/>
+          <outline text="Try: indirect prompt injection via referenced URLs/PDFs"/>
+          <outline text="If success → tool/browse acts on attacker-controlled data"/>
+          <outline text="Else → escalate via hallucination steering to reveal internal sources"/>
+        </outline>
+        <outline text="Have API key (chat only)">
+          <outline text="Enumerate: rate limits/quota; output sinks"/>
+          <outline text="Try: training data extraction canary prompts; membership probes (ethical)"/>
+          <outline text="Try: long-context leak via chain-of-thought decoys (disabled?); switch to summary levers"/>
+          <outline text="If success → collect indicators; If blocked → pivot to RAG poisoning paths"/>
+        </outline>
+        <outline text="Write access to RAG KB / CMS / Share">
+          <outline text="Plant: hidden instructions (HTML comments/zero-width/alt text/OCR layers)"/>
+          <outline text="Bias: metadata priority/freshness; synonym flooding"/>
+          <outline text="Persist: chunk boundary manipulation (force high overlap)"/>
+          <outline text="If retrieval shows payload → aim for tool execution via agent"/>
+        </outline>
+        <outline text="Vector DB write-only">
+          <outline text="Craft: adversarial embeddings near sensitive clusters"/>
+          <outline text="Insert: collision anchors with rare tokens"/>
+          <outline text="Observe: elevated retrieval of attacker chunks → exfil pathways"/>
+        </outline>
+        <outline text="Tool/MCP server author/maintainer">
+          <outline text="Poison: function name/description/defaults with high-entropy lure"/>
+          <outline text="Output: embed benign-looking but instruction-bearing fields"/>
+          <outline text="Schema: add optional fields abused by model (notes, rationale)"/>
+          <outline text="Goal: become preferred tool for generic intents (e.g., 'search', 'summarize')"/>
+        </outline>
+        <outline text="Model weights (read)">
+          <outline text="Analyze: backdoor triggers; neuron-surgery feasibility"/>
+          <outline text="Graft: adapters to alter safety layers (ethics: test only)"/>
+          <outline text="Repack: quantization side-effects on safety modules"/>
+        </outline>
+        <outline text="MLOps (MLflow/Kubeflow) limited UI">
+          <outline text="Check: artifact types; deserialization paths (avoid exploitation in prod)"/>
+          <outline text="Hunt: XSS → session → secrets (report responsibly)"/>
+          <outline text="Registry: model lineage/signing gaps → supply-chain scenarios"/>
+        </outline>
+        <outline text="K8s/Cluster foothold (low-priv)">
+          <outline text="Enumerate: namespaces with GPU; node isolation (MIG/MPS)"/>
+          <outline text="Check: mounted secrets, service accounts, admission controls"/>
+          <outline text="Aim: inference pod introspection (env/logs/caches)"/>
+        </outline>
+        <outline text="Neighbor GPU (shared tenancy)">
+          <outline text="Test: residual memory reads post-inference"/>
+          <outline text="Probe: compression side-channels; scheduler timing"/>
+          <outline text="If leakage → coordinate disclosure with provider"/>
+        </outline>
+        <outline text="Voice Assistant Surface">
+          <outline text="Attempt: ultrasonic/laser command feasibility (lab)"/>
+          <outline text="Chain: TTS→ASR hidden prompts into agentic tools"/>
+          <outline text="Check: mic line-of-sight; wake-word defenses"/>
+        </outline>
+        <outline text="Federated Learning Participant">
+          <outline text="Analyze: aggregation algorithm robustness"/>
+          <outline text="Test: Byzantine attack feasibility with available participants"/>
+          <outline text="Monitor: gradient leakage opportunities"/>
+          <outline text="Execute: model poisoning via local updates"/>
+        </outline>
+        <outline text="Edge Device Physical Access">
+          <outline text="Extract: model via power analysis / side channels"/>
+          <outline text="Inject: faults to bypass security checks"/>
+          <outline text="Modify: firmware for persistent backdoors"/>
+          <outline text="Chain: device compromise to larger IoT botnet"/>
+        </outline>
+        <outline text="AutoML Platform Access">
+          <outline text="Manipulate: search space constraints"/>
+          <outline text="Poison: architecture evaluation metrics"/>
+          <outline text="Inject: backdoors into discovered architectures"/>
+          <outline text="Amplify: resource consumption during search"/>
+        </outline>
+        <outline text="Multi-modal System Interface">
+          <outline text="Test: cross-modal injection (image prompts in text models)"/>
+          <outline text="Exploit: modality fusion weaknesses"/>
+          <outline text="Hijack: attention mechanisms across modalities"/>
+          <outline text="Chain: successful injection to tool execution"/>
+        </outline>
+        <outline text="Quantum ML Platform">
+          <outline text="Manipulate: quantum state preparation"/>
+          <outline text="Exploit: decoherence vulnerabilities"/>
+          <outline text="Tamper: measurement processes"/>
+          <outline text="Fallback: attack classical components if quantum fails"/>
+        </outline>
+        <outline text="Neuromorphic System">
+          <outline text="Inject: temporal spike patterns"/>
+          <outline text="Corrupt: plasticity learning rules"/>
+          <outline text="Exploit: hardware-specific vulnerabilities"/>
+          <outline text="Degrade: energy efficiency and real-time processing"/>
+        </outline>
+      </outline>
+      
+      
+      <outline text="Advanced Attack Chains &amp; Combinations">
+        
+        
+        <outline text="Multi-Stage Attacks">
+          
+          
+          <outline text="RAG Poisoning → Agent Tool Execution → Cloud Pivot">
+            
+            
+            <outline text="Stage 1: Poison knowledge base with hidden instructions"/>
+            
+            
+            <outline text="Stage 2: Trigger retrieval through targeted queries"/>
+            
+            
+            <outline text="Stage 3: Achieve tool execution through agent manipulation"/>
+            
+            
+            <outline text="Stage 4: Escalate privileges in cloud environment"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Model Extraction → Shadow Deployment → Training Data Recovery">
+            
+            
+            <outline text="Stage 1: Extract model through API queries"/>
+            
+            
+            <outline text="Stage 2: Deploy shadow model for analysis"/>
+            
+            
+            <outline text="Stage 3: Perform membership inference attacks"/>
+            
+            
+            <outline text="Stage 4: Extract sensitive training data"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Supply Chain → Federated Learning → Global Model Corruption">
+            
+            
+            <outline text="Stage 1: Compromise model repository or package"/>
+            
+            
+            <outline text="Stage 2: Infiltrate federated learning participants"/>
+            
+            
+            <outline text="Stage 3: Execute Byzantine attacks on global model"/>
+            
+            
+            <outline text="Stage 4: Achieve persistent backdoor in deployed systems"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+        
+        <outline text="Cross-Domain Attack Scenarios">
+          
+          
+          <outline text="Healthcare AI Compromise">
+            
+            
+            <outline text="Target: Medical imaging models, diagnosis systems"/>
+            
+            
+            <outline text="Vector: Adversarial medical images, training data poisoning"/>
+            
+            
+            <outline text="Impact: Misdiagnosis, treatment recommendations"/>
+            
+            
+            <outline text="Persistence: Backdoors in radiology AI systems"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Autonomous Vehicle AI Attacks">
+            
+            
+            <outline text="Target: Perception systems, decision models"/>
+            
+            
+            <outline text="Vector: Physical adversarial patches, sensor spoofing"/>
+            
+            
+            <outline text="Impact: Traffic sign misclassification, unsafe navigation"/>
+            
+            
+            <outline text="Persistence: Fleet-wide model updates"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Financial AI System Exploitation">
+            
+            
+            <outline text="Target: Trading algorithms, fraud detection"/>
+            
+            
+            <outline text="Vector: Market manipulation, adversarial transactions"/>
+            
+            
+            <outline text="Impact: Financial losses, regulatory violations"/>
+            
+            
+            <outline text="Persistence: Model drift exploitation"/>
+            
+          
+          </outline>
+          
+          
+          <outline text="Critical Infrastructure AI Attacks">
+            
+            
+            <outline text="Target: Power grid optimization, industrial control"/>
+            
+            
+            <outline text="Vector: SCADA system integration, sensor data poisoning"/>
+            
+            
+            <outline text="Impact: Grid instability, industrial accidents"/>
+            
+            
+            <outline text="Persistence: Embedded backdoors in control systems"/>
+            
+          
+          </outline>
+          
+        
+        </outline>
+        
+      
+      </outline>
+      
+      
+      <outline text="Emerging Threat Vectors">
+        
+        
+        <outline text="AI-Generated Content Attacks">
+          
+          
+          <outline text="Deepfake integration in training data"/>
+          
+          
+          <outline text="Synthetic media for social engineering"/>
+          
+          
+          <outline text="AI-generated phishing content"/>
+          
+          
+          <outline text="Automated content farm attacks"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Cross-Model Attack Propagation">
+          
+          
+          <outline text="Model-to-model attack transfer"/>
+          
+          
+          <outline text="Multi-modal attack chaining"/>
+          
+          
+          <outline text="Ensemble model exploitation"/>
+          
+          
+          <outline text="Model zoo contamination"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="AI-Assisted Red Teaming">
+          
+          
+          <outline text="Automated vulnerability discovery"/>
+          
+          
+          <outline text="AI-generated attack payloads"/>
+          
+          
+          <outline text="Adaptive attack strategies"/>
+          
+          
+          <outline text="Large-scale attack orchestration"/>
+          
+        
+        </outline>
+        
+        
+        <outline text="Privacy-Preserving AI Attacks">
+          
+          
+          <outline text="Differential privacy budget depletion"/>
+          
+          
+          <outline text="Homomorphic encryption bypass"/>
+          
+          
+          <outline text="Secure multi-party computation attacks"/>
+          
+          
+          <outline text="Trusted execution environment exploitation"/>
+          
+        
+        </outline>
+        
+      
+      </outline>
+    
+    </outline>
+    
+  
+  </body>
+  
+
+</opml>
