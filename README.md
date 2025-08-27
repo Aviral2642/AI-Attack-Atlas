@@ -1,4 +1,4 @@
-# 🧠 AI Attack Atlas
+# AI Attack Mind Map – The Complete Guide to AI Security Threats
 
 The **AI Attack Atlas** is the **most comprehensive mind map** of adversarial techniques, attack surfaces, and pivot paths across **modern AI systems**.
 
